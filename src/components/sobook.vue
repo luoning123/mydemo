@@ -1,20 +1,19 @@
 <template>
 	<div class="xq">
-	<h4>搜索结果</h4>
+	<h4>搜索结果:<i>{{id}}</i></h4>
 	<ul>
 		<li v-for="c in info.books">
 			<img :src="c.image" alt="">
 			<p><a v-on:click="xq(c.id)">{{c.title}}</a></p>
+			<p><span class="pl">{{c.rating.average}}  </span>({{c.rating.numRaters}}人评价)</p>
 			<p>{{c.author[0]}}</p>
 		</li>
+		
 	</ul>
 	</div>
 </template>
 
 <script>
-
-
-
 	export default {
 		name:'sobook',
 		data(){
@@ -48,6 +47,10 @@
 	}
 </script>
 <style>
+.pl{
+	font-size: 24px;
+	color: #999;
+}
 a{
 	color: #42b983;
 }
@@ -57,7 +60,8 @@ a{
 }
 .xq ul li{
 	margin-bottom: 20px;
-	width: 200px;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #ccc;
 	text-align: left;
 	list-style: none;
 }
@@ -69,7 +73,7 @@ a{
 	text-align: left;
 }
 .xq{
-	width: 900px;
+	width: 100%;
 	margin:0 auto;
 }
 </style>

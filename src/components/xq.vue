@@ -32,7 +32,8 @@
 		</div>
 		<div class="jj xq">
 			<h3>目录· · · · · ·</h3>
-			<p>{{ datas.catalog}}</p>
+			<p style="text-indent:0;"><pre>{{ datas.catalog}}</pre></p>
+			
 		</div>
 	</div>
 </template>
@@ -70,6 +71,12 @@
 	width: 100%;
 	text-indent:2em;
 	text-align: left;
+	overflow: hidden;
+}
+.xq{
+	width: 100%;
+	margin:0 auto;
+	/*border:1px solid red;*/
 }
 .xx p{
 	text-align: left;
@@ -84,6 +91,19 @@
 .xx{
 	height: 200px;
 }
+@media screen and (max-width:411px){
+	.xx{
+		height: 300px;
+	}
+	.fr{
+		padding-left: 10px;
+		margin-top: 30px;
+		float: left;
+		width: 100px;
+		height: 100px;
+		border-left:1px solid #ccc;
+	}
+}
 .fl{
 	height: 165px;
 	margin-right: 10px;
@@ -92,9 +112,5 @@
 .h2lf{
 	text-align: left;
 }
-.xq{
-	width: 900px;
-	margin:0 auto;
-	/*border:1px solid red;*/
-}
+
 </style>

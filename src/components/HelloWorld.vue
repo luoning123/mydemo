@@ -1,6 +1,7 @@
 <template>
   <div class="hello">   
     <div>
+      <el-row>
       <ul>
          <li>
               <img :src="book1.image">
@@ -105,6 +106,7 @@
               <p>{{ book10.author[0] }}</p>
          </li>
       </ul>
+    </el-row>
     </div>
 
   </div>
@@ -209,7 +211,7 @@ img:hover +  div{
 }
 ul{
   /*border:1px solid blue;*/
-  width: 900px;
+  width: 100%;
   height: 500px;
   margin:0px auto;
 }
