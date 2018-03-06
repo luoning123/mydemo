@@ -24,15 +24,15 @@
 		</div>
 		<div class="jj xq">
 			<h3>内容简介· · · · · ·</h3>
-			<p>{{ datas.summary }}</p>
+			<p v-for="a in summary">{{a}}</p>
 		</div>
 		<div class="jj xq">
 			<h3>作者简介· · · · · ·</h3>
-			<p>{{ datas.author_intro }}</p>
+			<p v-for="b in author_intro">{{b}}</p>
 		</div>
 		<div class="jj xq">
 			<h3>目录· · · · · ·</h3>
-			<p style="text-indent:0;"><pre>{{ datas.catalog}}</pre></p>
+			<p style="text-indent:0;" v-for="c in catalog">{{c}}></p>
 			
 		</div>
 	</div>
@@ -42,7 +42,10 @@
 		name:'xq',
 		data(){
 		return{
-			datas:""
+			datas:"",
+			summary:"",
+			author_intro:"",
+			catalog:""
 		}
 		},
 		created(){//打开执行函数
@@ -50,6 +53,9 @@
 			let id = this.$route.params.id;//提取数据
 			this.$jsonp('https://api.douban.com/v2/book/'+id).then(info =>{
 				_this.datas = info;
+				_this.summary = info.summary.split("\n");
+				_this.author_intro = info.author_intro.split("\n");
+				_this.catalog = info.catalog.split("\n");
 			})
 		}
 	}
