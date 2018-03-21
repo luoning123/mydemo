@@ -1,7 +1,8 @@
 <template>
   <div class="hello">   
-    <div>
-      <el-row>
+  <el-row type="flex" class="row-bg" justify="center">
+    <!-- 用elementui作自适应 -->
+    <el-col :xs="24" :sm="18" :md="14" :lg="14" :xl="12">
       <ul>
          <li>
               <img :src="book1.image">
@@ -106,11 +107,9 @@
               <p>{{ book10.author[0] }}</p>
          </li>
       </ul>
-    </el-row>
-    </div>
-
+    </el-col>
+  </el-row>
   </div>
-
 </template>
 
 <script>

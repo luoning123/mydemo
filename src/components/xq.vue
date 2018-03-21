@@ -1,6 +1,8 @@
 <template>
-	<div class="xq">
+	<div class="box">
 <!-- 	{{datas}} -->
+<el-row type="flex" class="row-bg" justify="center">
+		<el-col :xs="24" :sm="16" :md="13" :lg="10" :xl="8">
 		<h2 class="h2lf">{{datas.title}}</h2>
 		<div class="xq xx">
 			<img class="fl" :src="datas.image" :alt="datas.title">
@@ -35,6 +37,8 @@
 			<p style="text-indent:0;" v-for="c in catalog">{{c}}></p>
 			
 		</div>
+	</el-col>
+</el-row>
 	</div>
 </template>
 <script>

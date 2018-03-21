@@ -1,15 +1,29 @@
 <template>
 	<div class="xq">
-	<h4>搜索结果:<i>{{id}}</i></h4>
-	<ul>
-		<li v-for="c in info.books">
-			<img :src="c.image" alt="">
-			<p><a v-on:click="xq(c.id)">{{c.title}}</a></p>
-			<p><span class="pl">{{c.rating.average}}  </span>({{c.rating.numRaters}}人评价)</p>
+	<el-row type="flex" class="row-bg" justify="center">
+		<el-col :xs="24" :sm="16" :md="13" :lg="10" :xl="8">
+		<h4>搜索结果:<i>{{id}}</i></h4>	
+		<ul>
+			<li v-for="c in info.books">
+				<img :src="c.image" alt="">
+				<p><a v-on:click="xq(c.id)">{{c.title}}</a></p>
+				<p>
+					<span class="pl">{{c.rating.average}} </span>
+					<el-rate
+					v-model="c.rating.average/2"
+					disabled
+					show-score
+					text-color="#ff9900"
+					:score-template="c.rating.average">
+					<!--  -->
+				</el-rate>
+				({{c.rating.numRaters}}人评价)
+			</p>
 			<p>{{c.author[0]}}</p>
-		</li>
-		
-	</ul>
+		</li>	
+		</ul>
+		</el-col>
+	</el-row>
 	</div>
 </template>
 
@@ -25,14 +39,14 @@
 		created(){
 
 			let _this = this;
-			setInterval(function(){
+			setInterval(function(){//计时器刷新input传过来的id
 				_this.id = _this.$route.params.id;
 			},20);
 
 			
 		},
 		watch:{//观察者模式
-			id(){
+			id(){//如果id改变就执行下面代码
 			var _this = this;
 			let id = this.$route.params.id;
 			console.log(id);
@@ -42,8 +56,8 @@
 			}
 		},
 		methods:{//页面跳转
-    xq(cid){this.$router.push({path:"/xq/"+cid})}
-  }
+			xq(cid){this.$router.push({path:"/xq/"+cid})}
+		}
 	}
 </script>
 <style>
